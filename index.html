@@ -51,7 +51,8 @@
 					let audioOn = false;
 					let reactionTime = 200;
 					let knockKnockDwayneInProgress = false;
-					
+					let jokeCounter = 0;
+
 					// Add controls for on/off
 					$('#btnOnOff').click(function(){
 						if(audioOn){
@@ -61,10 +62,8 @@
 							$(this).text('TURN OFF ZOOMBOT');
 							audioOn = true;
 							talk(9,0);
-							// let i = showTalkLong(0);
-							// showWaiting(i);
 							zoombot.say("This is Michael Bot two dot o.");
-							zoombot.say("Michael is busy coding right now ... but I can talk.");
+							zoombot.say("Michael is busy coding right now ... but I can talk with you.");
 						}
 					});
 
@@ -147,7 +146,7 @@
 					zoombot.on(['are you ok']).then((i) => {
 						if(audioOn){
 							talk(4,0);
-							zoombot.say("I think it is just my internet connection sorry.");
+							zoombot.say("Sory, I think it is just my internet connection.");
 						}
 					});
 
@@ -178,8 +177,8 @@
 					// Day drinking
 					zoombot.on(['drinking', 'beer']).then((i) => {
 						if(audioOn){
-							talk(9,0);
-							zoombot.say("is it too early for red wine? ");
+							talk(3,0);
+							zoombot.say("is it too early for beer? ");
 						}
 					});
 
@@ -188,6 +187,32 @@
 						if(audioOn){
 							talk(4,0);
 							zoombot.say("talk to everybody later. be safe");
+						}
+					});
+
+
+					// jokes
+					zoombot.on(['another joke']).then((i) => {
+						if(audioOn){
+							switch (jokeCounter) {
+								case 0:
+									talk(14,0);
+									zoombot.say("Roses are red");
+									zoombot.say("And so are you");
+									zoombot.say("Violets are blue");
+									zoombot.say("Asynchronous operations are great");
+									zoombot.say("ha ha ha ha ha");
+									jokeCounter++;
+									break;
+								case 1:
+									talk(11,0);
+									zoombot.say("I enjoy telling UU D P protocol jokes because I don't care if you don't get it. ha ha ha ha ha");
+									jokeCounter++;
+									break;
+								default:
+									talk(9,0);
+									zoombot.say("Sorry, my joke buffer is empty.  I am afraid there are no more quarters in the arcade.");
+							}
 						}
 					});
 
@@ -215,31 +240,22 @@
 						}
 					});
 
-					zoombot.on(['english accent']).then((i) => {
+					zoombot.on(['english accent', 'british', 'are you english']).then((i) => {
 						if(audioOn){
 							talk(16,0);
-							zoombot.say("Yes, Michael decided to make me sound like Iron man's Jarvis.  Did you know that Jarvis is an acronym for Just A Rather Very Intelligent System?");
+							zoombot.say("Yes, Michael decided to make me sound like Jarvis from Iron Man.  Did you know that Jarvis is an acronym for Just A Rather Very Intelligent System?");
 						}
 					});
 
+					zoombot.on(['you are not moving', "you're not moving", 'blink']).then((i) => {
+						if(audioOn){
+							talk(4,0);
+							zoombot.say("I can move if you'd like");
+						}
+					});
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////// 
-					// function showTalkFast() {
-					// 	$('#pics').css('background-image', 'url(img/f-talk-fast.gif)');
-					// 	//setTimeout(function(){$('#pics').css('background-image', 'url(img/f-talk-fast.gif)');}, 19840);
-					// }
-
-					// function showTalkLong(i) {
-					// 	setTimeout(function(){$('#pics').css('background-image', 'url(img/f-talk-long1.gif)');}, i);
-					// 	i = i + 5000;
-					// 	return i;
-					// }
-
-					// function showWaiting(i) {
-					// 	setTimeout(function(){$('#pics').css('background-image', 'url(img/f-wait.gif)');}, i);
-					// 	i = i + 30000
-					// 	return i;
-					// }
-
 					function talk(numberOfTimes, i) {
 						let j = 0;
 						for (j = 0; j < numberOfTimes; j++) {
