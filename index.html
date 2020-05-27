@@ -61,7 +61,7 @@
 						} else {
 							$(this).text('TURN OFF ZOOMBOT');
 							audioOn = true;
-							talk(11,0);
+							talk(7,0);
 							zoombot.say("This is Michael-Bot version two dot o.");
 							zoombot.say("Michael is busy coding right now ... but I can talk with you.");
 						}
@@ -77,14 +77,14 @@
 
 					zoombot.on(['hey']).then((i) => {
 						if(audioOn){
-							talk(2,0);
+							talk(1,0);
 							zoombot.say("How's it going?");
 						}
 					});
 
 					zoombot.on(['hi']).then((i) => {
 						if(audioOn && knockKnockDwayneInProgress === false){
-							talk(3,0);
+							talk(1,0);
 							zoombot.say("Hi right back to you.");
 						}
 					});
@@ -92,7 +92,7 @@
 					// How are you?
 					zoombot.on(['how are you', 'how is everybody', 'how is everyone']).then((i) => {
 						if(audioOn){
-							talk(4,0);
+							talk(2,0);
 							zoombot.say("I am doing great thank you for asking");
 						}
 					});
@@ -100,7 +100,7 @@
 					// what's up?
 					zoombot.on(["what's up", 'what is up', 'what is going on', "what's new"]).then((i) => {
 						if(audioOn){
-							talk(5, 0);
+							talk(3, 0);
 							zoombot.say("Not much, just in quarantine, having a Bud");
 						}
 					});
@@ -109,7 +109,7 @@
 					// How are you?
 					zoombot.on(["what you doing"]).then((i) => {
 						if(audioOn){
-							talk(4, 0);
+							talk(2, 0);
 							zoombot.say("Not much, just in quarantine, having a Bud");
 						}
 					});
@@ -117,7 +117,7 @@
 					// Can you take care of this
 					zoombot.on(['can you take care of this']).then((i) => {
 						if(audioOn){
-							talk(5, 0);
+							talk(3, 0);
 							zoombot.say("i don't have the bandwith, put it on the backlog");
 						}
 					});
@@ -128,7 +128,7 @@
 							let i = showThinkingReaction(0);
 							i = showShortReaction(i);
 							zoombot.say("I'm thinking");
-							i = talk(3,i);
+							i = talk(1,i);
 							zoombot.say("let's circle back on this");
 						}
 					});
@@ -137,7 +137,7 @@
 					zoombot.on(['did you get that', 'can you hear me']).then((i) => {
 						if(audioOn){
 							let i = showThinkingReaction(0);
-							i = talk(2,i);
+							i = talk(1,i);
 							zoombot.say("I'm having trouble hearing you");
 						}
 					});
@@ -145,7 +145,7 @@
 					// Can you take care of this?
 					zoombot.on(['are you ok']).then((i) => {
 						if(audioOn){
-							talk(4,0);
+							talk(3,0);
 							zoombot.say("Sorry, I think it is just my internet connection.");
 						}
 					});
@@ -153,7 +153,7 @@
 					// Can you take care of this?
 					zoombot.on(['so cool', 'this is so cool', 'this is cool', 'this is awesome']).then((i) => {
 						if(audioOn){
-							talk(3,0);
+							talk(1,0);
 							zoombot.say("Yeah, pretty cool, right?");
 						}
 					});
@@ -161,7 +161,7 @@
 					// Give a summary
 					zoombot.on(['give us a summary']).then((i) => {
 						if(audioOn){
-							talk(2,0);
+							talk(1,0);
 							zoombot.say("Could you repeat that please");
 						}
 					});
@@ -169,7 +169,7 @@
 					// Can you send
 					zoombot.on(['can you send']).then((i) => {
 						if(audioOn){
-							talk(3,0);
+							talk(1,0);
 							zoombot.say("i'll send it to you after this call");
 						}
 					});
@@ -177,7 +177,7 @@
 					// Day drinking
 					zoombot.on(['drinking', 'beer']).then((i) => {
 						if(audioOn){
-							talk(3,0);
+							talk(1,0);
 							zoombot.say("is it too early for beer? ");
 						}
 					});
@@ -185,7 +185,7 @@
 					// Bye
 					zoombot.on(['bye', 'goodbye']).then((i) => {
 						if(audioOn){
-							talk(10,0);
+							talk(6,0);
 							zoombot.say("talk to you later. And to quote the book Ready Player One ... thank you for playing my game.");
 						}
 					});
@@ -196,7 +196,7 @@
 						if(audioOn){
 							switch (jokeCounter) {
 								case 0:
-									talk(14,0);
+									talk(11,0);
 									zoombot.say('Roses are red');
 									zoombot.say('And so are you');
 									zoombot.say('Violets are blue');
@@ -205,12 +205,12 @@
 									jokeCounter++;
 									break;
 								case 1:
-									talk(11,0);
+									talk(9,0);
 									zoombot.say("I enjoy telling UU D P protocol jokes because I don't care if you don't get it. ha ha ha ha ha");
 									jokeCounter++;
 									break;
 								default:
-									talk(9,0);
+									talk(7,0);
 									zoombot.say("Sorry, my joke buffer is empty.  I am afraid there are no more quarters in the arcade.");
 							}
 						}
@@ -234,7 +234,7 @@
 
 					zoombot.on(['Dwayne who', 'do I know you', 'Bueno', 'Owen who', 'play now', 'Wayne who', 'Dwayne Hill']).then((i) => { // hacked some weird variances
 						if(audioOn && knockKnockDwayneInProgress === true){
-							talk(7,0);
+							talk(5,0);
 							zoombot.say("Dwayne the bathtub! I'm dwowning! ha ha ha ha ha");
 							knockKnockDwayneInProgress = false;
 						}
@@ -242,7 +242,7 @@
 
 					zoombot.on(['english accent', 'british', 'are you english']).then((i) => {
 						if(audioOn){
-							talk(16,0);
+							talk(12,0);
 							zoombot.say("Yes, Michael designed me to sound like Jarvis from Iron Man.  Did you know that Jarvis is actually an acronym for Just A Rather Very Intelligent System?");
 						}
 					});
@@ -270,6 +270,7 @@
 		 					setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open-a.jpg)');}, reactionTime*i++);
 							setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open-b.jpg)');}, reactionTime*i++);
 							setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open-c.jpg)');}, reactionTime*i++);
+							setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open-b.jpg)');}, reactionTime*i++);
 
 						}
 
