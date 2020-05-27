@@ -18,7 +18,7 @@
 				width: 100%; height: 100%;
 				background-repeat: no-repeat;
 			    background-size: cover;
-				background-image: url(img/zoombot-smile.jpg);
+				background-image: url(img/zoombot-wait1.gif);
 				z-index: 1;
 			}
 
@@ -61,8 +61,8 @@
 						} else {
 							$(this).text('TURN OFF ZOOMBOT');
 							audioOn = true;
-							talk(9,0);
-							zoombot.say("This is Michael Bot two dot o.");
+							talk(11,0);
+							zoombot.say("This is Michael-Bot version two dot o.");
 							zoombot.say("Michael is busy coding right now ... but I can talk with you.");
 						}
 					});
@@ -146,7 +146,7 @@
 					zoombot.on(['are you ok']).then((i) => {
 						if(audioOn){
 							talk(4,0);
-							zoombot.say("Sory, I think it is just my internet connection.");
+							zoombot.say("Sorry, I think it is just my internet connection.");
 						}
 					});
 
@@ -185,23 +185,23 @@
 					// Bye
 					zoombot.on(['bye', 'goodbye']).then((i) => {
 						if(audioOn){
-							talk(4,0);
-							zoombot.say("talk to everybody later. be safe");
+							talk(10,0);
+							zoombot.say("talk to you later. And to quote the book Ready Player One ... thank you for playing my game.");
 						}
 					});
 
 
 					// jokes
-					zoombot.on(['another joke']).then((i) => {
+					zoombot.on(['another joke', 'tell me a joke']).then((i) => {
 						if(audioOn){
 							switch (jokeCounter) {
 								case 0:
 									talk(14,0);
-									zoombot.say("Roses are red");
-									zoombot.say("And so are you");
-									zoombot.say("Violets are blue");
-									zoombot.say("Asynchronous operations are great");
-									zoombot.say("ha ha ha ha ha");
+									zoombot.say('Roses are red');
+									zoombot.say('And so are you');
+									zoombot.say('Violets are blue');
+									zoombot.say('Asynchronous operations are great');
+									zoombot.say('ha ha ha ha ha');
 									jokeCounter++;
 									break;
 								case 1:
@@ -243,7 +243,7 @@
 					zoombot.on(['english accent', 'british', 'are you english']).then((i) => {
 						if(audioOn){
 							talk(16,0);
-							zoombot.say("Yes, Michael decided to make me sound like Jarvis from Iron Man.  Did you know that Jarvis is an acronym for Just A Rather Very Intelligent System?");
+							zoombot.say("Yes, Michael designed me to sound like Jarvis from Iron Man.  Did you know that Jarvis is actually an acronym for Just A Rather Very Intelligent System?");
 						}
 					});
 
@@ -256,6 +256,14 @@
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+					function showWaitingReaction(i)
+					{
+						//setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-smile.jpg)');}, reactionTime*i++);
+						setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-wait1.gif)');}, reactionTime*i++);
+						return i;
+					}
+
 					function talk(numberOfTimes, i) {
 						let j = 0;
 						for (j = 0; j < numberOfTimes; j++) {
@@ -266,23 +274,24 @@
 
 						}
 
-						setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-smile.jpg)');}, reactionTime*i++);
+						i = showWaitingReaction(i);
 						return i;
 					}
 
 
 					function showShortReaction(i) {
 						setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open1.jpg)');}, reactionTime*i++);
-						setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-smile.jpg)');}, reactionTime*i++);
+						i = showWaitingReaction(i);
 						return i;
 					}
 
 
 					function showThinkingReaction(i) {
 						setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-thinking.jpg)');}, reactionTime*i++);
-						setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-smile.jpg)');}, reactionTime*i++);
+						i = showWaitingReaction(i);
 						return i;
 					}
+
 
 					// Kickstart my heart
 					zoombot.initialize({
