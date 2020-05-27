@@ -18,7 +18,7 @@
 				width: 100%; height: 100%;
 				background-repeat: no-repeat;
 			    background-size: cover;
-				background-image: url(img/zoombot-wait1.gif);
+				background-image: url(img/zoombot-wait3.gif);
 				z-index: 1;
 			}
 
@@ -259,8 +259,7 @@
 
 					function showWaitingReaction(i)
 					{
-						//setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-smile.jpg)');}, reactionTime*i++);
-						setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-wait1.gif)');}, reactionTime*i++);
+						setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-wait3.gif)');}, reactionTime*i++);
 						return i;
 					}
 
@@ -268,9 +267,9 @@
 						let j = 0;
 						for (j = 0; j < numberOfTimes; j++) {
   							
-		 					setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open1.jpg)');}, reactionTime*i++);
-							setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open2.jpg)');}, reactionTime*i++);
-							setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open3.jpg)');}, reactionTime*i++);
+		 					setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open-a.jpg)');}, reactionTime*i++);
+							setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open-b.jpg)');}, reactionTime*i++);
+							setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open-c.jpg)');}, reactionTime*i++);
 
 						}
 
@@ -280,7 +279,7 @@
 
 
 					function showShortReaction(i) {
-						setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open1.jpg)');}, reactionTime*i++);
+						setTimeout(function(){$('#pics').css('background-image', 'url(img/zoombot-open-a.jpg)');}, reactionTime*i++);
 						i = showWaitingReaction(i);
 						return i;
 					}
